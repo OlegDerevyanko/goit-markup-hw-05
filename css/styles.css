@@ -18,8 +18,10 @@
     a {
         list-style-type: none;
         text-decoration: none; 
-        font-style: normal; 
+        font-style: normal;
+    
     }
+  
 
     address {
         text-decoration: none;
@@ -94,12 +96,14 @@
         margin-bottom: 0;
         padding: 0;
         display: flex; 
-        transition: transform 250ms var(--timing-function);       
+        
+               
     }      
 
     .list-force :hover,
     .list-force :focus {
         color: var(--accent-color);
+        
         
     }
     .list-force .item {
@@ -111,9 +115,13 @@
     } */
     .list-force .link,
     .mail-header, .tel {
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         
         padding-top: 32px;
         padding-bottom: 32px;
+        
     }
 
     .site-nav {
@@ -127,7 +135,7 @@
     .site-nav .link {
         position: relative;
         color: var(--st-color); 
-        transition: transform 250ms var(--timing-function);       
+             
     }
 
     .site-nav .link:hover,
@@ -146,10 +154,11 @@
         background-color: var(--accent-color);
         transform: scaleX(0);
         transition: transform 250ms var(--timing-function);
+        
     }
     .site-nav .link:hover::after {
         transform: scaleX(1);
-        transition: transform 250ms var(--timing-function);
+        
         
     }
     .site-nav .link.current {
@@ -165,12 +174,17 @@
         align-items: center;
     }
     
-    .list-force .mail-icon {     
+    .list-force .mail-icon {
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);     
          margin-right: 10px;        
         fill: var(--pt-color);
-        transition: transform 250ms var(--timing-function);
+        
+        
         
     }
+    
     .mail-header:hover .mail-icon,
     .mail-header:focus .mail-icon {
         fill: var(--accent-color);
@@ -185,12 +199,15 @@
     }
     
 
-    .list-force .tel-icon {  
+    .list-force .tel-icon {
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);  
          
         margin-right: 10px;
                
         fill: var(--pt-color);
-        transition: transform 250ms var(--timing-function);
+        
         
         
     }
@@ -261,7 +278,10 @@
         border: none;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
         border-radius: 4px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
+   
     .backdrop {
         position: fixed;
         top: 0;
@@ -269,17 +289,24 @@
         
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.2);
         opacity: 1;
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
     .backdrop.is-hidden {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
         
+        
     }
     .backdrop .is-hidden .modal {
         transform: translate(-50%, -50%) scale(0.9);
+        
+        
+        
         
     }
     .modal {
@@ -296,6 +323,8 @@
         rgb(0 0 0 / 20%);
         border-radius: 4px;
         
+        
+        
     }
     .modal .button-close {
         position: absolute;
@@ -311,6 +340,7 @@
         background-color: var(--pbg-color);
         border-radius: 50%;
         border: 1px solid rgba(0, 0, 0, 0.1);
+        
     }
     .modal .button-icon-close {
         color: #000000
@@ -536,7 +566,8 @@
     .list-team .button {
         display: flex;
         align-items: center;
-        border: none;
+        border: 1px solid var(--pbg-color);
+        border-radius: 50%;
         padding: 0;
         padding: 12px 12px;
         background-color: var(--pbg-color);
@@ -544,21 +575,31 @@
         width: 44px;
         height: 44px;
         position: relative;
-        transition: transform 250ms var(--timing-function);
-    }
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+        
+        
+    
     .list-team .button:hover,
     .list-team .button:focus {
         border: 1px solid var(--accent-color);
         border-radius: 50%;
         background-color: var(--accent-color);
         
-        /* fill: var(--third-text-color);  */
+        fill: var(--third-text-color); 
     }
     
     
     .button-icon {
         fill: var(--icon-primary-fill);
-        transition: transform 250ms var(--timing-function);
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
+       
+       
     }
     .list-team .button:hover .button-icon,
     .list-team .button:focus .button-icon {
@@ -613,28 +654,36 @@
         width: 170px;
         height: 92px;
         cursor: pointer;
-        transition: transform 250ms var(--timing-function);
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      
+  
+     
     }
     
     .list-client .button:hover,
     .list-client .button:focus { 
         border: 1px solid var(--accent-color);
         
+        
     }
-    /* .list-client .button:hover {
+    .list-client .button:hover {
         fill: var(--accent-color);
-    } */
+    }
     
     .list-client .button-icon {
         padding: 0;
         margin: 0;
         fill: var(--icon-primary-fill);
-        transition: transform 250ms var(--timing-function);
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
     
     .list-client .button:hover .button-icon,
     .list-client .button:focus .button-icon {   
         fill: var(--accent-color);
+        
        
     }
 
@@ -653,6 +702,7 @@
     }
     .footer-link {
         margin-bottom: 9px;
+        
     }
     .footer-link:last-child {
         margin-bottom: 0;
@@ -675,8 +725,11 @@
     .address {
         margin-bottom: 0;
         line-height: 1.71;
-        color: var(--tt-color); 
-        transition: transform 250ms var(--timing-function);        
+        color: var(--tt-color);
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+              
     }
 
     .address:hover {
@@ -702,7 +755,10 @@
         color: var(--ft-color);
         text-decoration: none;
         font-style: normal;
-        transition: transform 250ms var(--timing-function);
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
     .mail-footer:hover {
         color: var(--accent-color);
@@ -719,7 +775,10 @@
         color: var(--ft-color);
         text-decoration: none;
         font-style: normal;
-        transition: transform 250ms var(--timing-function);
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
     
     .tel-footer:hover {
@@ -765,7 +824,7 @@
     .social-foot .list .button {
         display: flex;
         align-items: center;
-        border: none;
+        border: 1px solid var(--tbg-color);
         padding: 0;
         padding: 12px 12px;
         cursor: pointer;
@@ -774,7 +833,11 @@
         border-radius: 50%;
         position: relative;
         background: var(--icon-background-color);
-        transition: transform 250ms var(--timing-function);
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
+        
     }
     .social-foot .list .button:hover,
     .social-foot .list .button:focus {
@@ -785,7 +848,8 @@
     }
     .social-foot .button-icon {
         fill: var(--tt-color);
-        transition: transform 250ms var(--timing-function);
+        
+       
     }
     .list-team .button:hover .button-icon,
     .list-team .button:focus .button-icon {
@@ -830,7 +894,10 @@
         border: none;
         padding: 6px 22px;
         border-radius: 4px;
-        transition: transform 250ms var(--timing-function);
+        transition: fill 2250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        background-color 2250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 2250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
                 
     }
     .button2:hover,
@@ -859,7 +926,7 @@
         width: 370px;
         margin-right: 30px;
         margin-bottom: 30px;
-        transition: transform 250ms var(--timing-function);                
+                       
       }
       .gallery .item:hover {
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -893,7 +960,7 @@
     }
     .gallery .item:hover .text {
         transform: translateY(0);
-        transition: transform 250ms var(--timing-function);
+       
     }
 
     .gallery .text { 
